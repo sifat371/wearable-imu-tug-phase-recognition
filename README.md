@@ -118,4 +118,9 @@ The split files contain portable subject identifiers only; local filesystem path
 
 ## License
 
-No license file is included yet. Add the license selected by the authors before making the repository public.
+The original source code in this repository is released under the MIT License.
+See [LICENSE](LICENSE) for details.
+
+The WearGait-PD and FoG-STAR datasets are not distributed with this repository
+and remain subject to their respective licenses and terms of use. Third-party
+figures and assets remain subject to their original licenses.
