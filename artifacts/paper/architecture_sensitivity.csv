@@ -1,0 +1,4 @@
+model,parameters,accuracy_percent,balanced_accuracy_percent,macro_f1_percent
+CNN-BiLSTM,88517,94.80,94.65,93.54
+BiLSTM,96965,94.25,93.85,92.72
+1D-CNN,93221,88.75,85.50,84.19

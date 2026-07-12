@@ -1,0 +1,50 @@
+seed: 42
+paths:
+  control_dir: data/weargait_pd/controls
+  pd_dir: data/weargait_pd/pd
+  output_dir: outputs/tug
+  split_csv: artifacts/paper/subject_level_split.csv
+  normalization_mean: artifacts/paper/imu_train_mean.npy
+  normalization_std: artifacts/paper/imu_train_std.npy
+data:
+  sample_step: 5
+  assumed_raw_hz: 100
+  max_seq_len: 1600
+  min_seq_len: 20
+  allow_missing_channels: true
+normalization:
+  use_reference: true
+  strict_verification: false
+  verification_tolerance: 0.001
+split:
+  train_fraction: 0.7
+  val_fraction: 0.15
+  test_fraction: 0.15
+  stratify_by_site_group: true
+window:
+  length: 40
+  stride: 10
+model:
+  conv_channels: 64
+  lstm_hidden: 64
+  dropout: 0.25
+training:
+  device: auto
+  torch_num_threads: null
+  num_workers: 0
+  pin_memory: true
+  batch_size_dense: 8
+  batch_size_window: 128
+  max_epochs: 80
+  patience: 12
+  learning_rate: 0.001
+  weight_decay: 0.001
+  grad_clip: 1.0
+  use_amp: false
+  dense_selection_order:
+  - macro_f1
+  window_selection_order:
+  - macro_f1
+run:
+  dense: true
+  window: true

@@ -1,0 +1,26 @@
+paths:
+  tug_output_dir: outputs/tug
+  spmt_output_dir: outputs/spmt
+  fogstar_output_dir: outputs/fogstar
+  output_dir: outputs/paper_figures
+  subject_split_csv: artifacts/paper/fogstar_subject_split.csv
+style:
+  font_size: 8.5
+  dpi: 600
+  formats:
+  - png
+  - pdf
+  - svg
+timeline:
+  quantiles:
+  - 0.5
+  - 0.25
+strict: false
+figures:
+  figure_4_tug_phase_timelines: true
+  figure_5_tug_confusion_matrices: true
+  figure_6_transfer_macro_f1: true
+  figure_s1_window_ambiguity: true
+  figure_s2_boundary_tolerance: true
+  figure_s3_tug_record_distributions: true
+  figure_s4_fogstar_confusion_matrices: true

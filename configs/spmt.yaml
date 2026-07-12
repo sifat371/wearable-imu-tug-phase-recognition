@@ -1,0 +1,54 @@
+seed: 42
+paths:
+  control_dir: data/weargait_pd/controls
+  pd_dir: data/weargait_pd/pd
+  tug_output_dir: outputs/tug
+  output_dir: outputs/spmt
+data:
+  file_pattern: '*_SelfPace_matTURN.csv'
+  sample_step: 5
+  assumed_raw_hz: 100
+  max_seq_len: 1600
+  min_seq_len: 20
+model:
+  conv_channels: 64
+  lstm_hidden: 64
+  source_dropout: 0.25
+training:
+  device: auto
+  torch_num_threads: null
+  num_workers: 2
+  pin_memory: true
+  batch_size: 8
+  max_epochs: 120
+  patience: 15
+  grad_clip: 1.0
+  use_amp: true
+frozen_head_configs:
+- hidden_dims: []
+  dropout: 0.0
+  learning_rate: 0.001
+  weight_decay: 0.001
+- hidden_dims:
+  - 32
+  dropout: 0.2
+  learning_rate: 0.001
+  weight_decay: 0.001
+- hidden_dims:
+  - 64
+  dropout: 0.3
+  learning_rate: 0.001
+  weight_decay: 0.001
+full_model_configs:
+- dropout: 0.2
+  learning_rate: 0.001
+  weight_decay: 0.001
+  encoder_lr_scale: 1.0
+- dropout: 0.3
+  learning_rate: 0.0005
+  weight_decay: 0.001
+  encoder_lr_scale: 1.0
+- dropout: 0.3
+  learning_rate: 0.001
+  weight_decay: 0.001
+  encoder_lr_scale: 0.2
